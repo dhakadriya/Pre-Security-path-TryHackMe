@@ -1,165 +1,149 @@
-**Networking Fundamentals**
 <img width="1913" height="860" alt="image" src="https://github.com/user-attachments/assets/2cf157d7-b067-4526-9e63-8cdc9cfa3049" />
 
-📌 Room Overview
-This TryHackMe room introduces the fundamental concepts of computer networking, including how devices communicate within networks and across the Internet.
+# 🌐 Networking Fundamentals  
+> TryHackMe Room Writeup  
+> Author: **Riya Dhakad**
 
-The room covers:
+---
 
-Network basics
+## 📖 Overview
 
-Internet fundamentals
+This room introduces the fundamental concepts of networking that form the backbone of cybersecurity. It explains how devices communicate, how the Internet works, and how systems are uniquely identified using IP and MAC addresses.
 
-IP & MAC addressing
+The room also provides hands-on practical exercises involving:
 
-IPv4 vs IPv6
+- IP Addressing  
+- MAC Address Spoofing  
+- ICMP & Ping  
 
-MAC spoofing
+Understanding networking is essential for both **Red Team (Offensive Security)** and **Blue Team (Defensive Security)** roles.
 
-ICMP & Ping utility
+---
 
-These networking concepts form the foundation for understanding cybersecurity and penetration testing practices.
+# 🧠 Task 1 — What is Networking?
 
-🎯 Objectives
-Understand what networking is
+Networking refers to devices connected together to communicate and share data.
 
-Learn about private & public networks
+A network can consist of:
 
-Identify devices using IP & MAC addresses
+- Two connected devices  
+- A local office network  
+- Billions of interconnected devices globally (Internet)
 
-Understand IPv4 & IPv6 addressing
+Networking powers critical infrastructure such as:
 
-Learn MAC spoofing concept
+- Transportation systems  
+- Power grids  
+- Communication services  
+- Internet services  
 
-Use Ping tool for network testing
+### ✅ Answer
 
-📍 Task 1: What is Networking?
-A network refers to devices that are connected together in order to share information and communicate with one another.
+| Question | Answer |
+|----------|--------|
+| What is the key term for devices that are connected together? | **Network** |
 
-In computing, networks can consist of:
+---
 
-Laptops
+# 🌍 Task 2 — What is the Internet?
 
-Smartphones
+The Internet is a global system of interconnected networks.
 
-Servers
+It originated from:
 
-Security Cameras
+- **ARPANET (1960s)**  
+- The invention of the **World Wide Web (1989)**  
 
-IoT Devices
+The World Wide Web was invented by **Tim Berners-Lee**, transforming the Internet into a global information-sharing platform.
 
-Networking is an essential concept in cybersecurity as it enables data communication across systems.
+### Network Types
 
-✅ Answer:
-Network
+| Type | Description |
+|------|------------|
+| Private Network | Internal communication between devices |
+| Public Network | Internet-facing communication |
 
-📍 Task 2: What is the Internet?
-The Internet is a global network of interconnected smaller networks.
+### ✅ Answer
 
-It originated from the ARPANET project and later evolved with the invention of the World Wide Web (WWW) in 1989 by Tim Berners-Lee.
+| Question | Answer |
+|----------|--------|
+| Who invented the World Wide Web? | **Tim Berners-Lee** |
 
-Networks can be classified as:
+---
 
-Private Networks
+# 🖥️ Task 3 — Identifying Devices on a Network
 
-Public Networks
+Devices are identified in two primary ways:
 
-✅ Answer:
-Tim Berners-Lee
+| Identification Type | Description | Changeable? |
+|---------------------|------------|------------|
+| IP Address | Logical network address | Yes |
+| MAC Address | Physical hardware address | Can be spoofed |
 
-📍 Task 3: Identifying Devices on a Network
-Devices on a network are identified using:
+---
 
-IP Address → Logical Address
+## 🌐 IP Address
 
-MAC Address → Physical Address
+- IPv4 consists of **4 sections**
+- Each section is called an **Octet**
+- Public IP → Identifies device on the Internet
+- Private IP → Identifies device within a local network
 
-🌍 IP Address
-An IP Address is used to uniquely identify a device on a network.
+---
 
-Consists of 4 sections in IPv4
+## 🔌 MAC Address
 
-Each section is known as an Octet
+- Stands for **Media Access Control**
+- 12-character hexadecimal value
+- Assigned to the network interface card (NIC)
+- Can be spoofed to bypass weak network controls
 
-Public IP → Identifies device on Internet
+### 🔍 MAC Spoofing Lab Result
 
-Private IP → Identifies device within a local network
+By spoofing Bob’s MAC address to match Alice’s, access to restricted Wi-Fi was successfully gained.
 
-🖥️ MAC Address
-MAC (Media Access Control) Address is:
+### ✅ Answers
 
-A unique physical address
+| Question | Answer |
+|----------|--------|
+| What does IP stand for? | **Internet Protocol** |
+| What is each section of an IP address called? | **Octet** |
+| How many sections does IPv4 have? | **4** |
+| What does MAC stand for? | **Media Access Control** |
+| What is the flag from the MAC spoofing lab? | **THM{YOU_GOT_ON_TRYHACKME}** |
 
-Assigned to network interface cards
+---
 
-Represented as hexadecimal values
+# 📡 Task 4 — Ping (ICMP)
 
-Can be spoofed to bypass network restrictions
+Ping is a diagnostic tool used to test connectivity between devices.
 
-MAC Spoofing allows a device to impersonate another device by modifying its MAC address.
+It uses:
 
-✅ Answers:
-IP Stands For:
-Internet Protocol
-
-Section of an IP Address:
-Octet
-
-IPv4 Sections:
-4
-
-MAC Stands For:
-Media Access Control
-
-MAC Spoofing Lab Flag:
-THM{YOU_GOT_ON_TRYHACKME}
-
-📍 Task 4: Ping (ICMP)
-Ping is a network utility used to test connectivity between devices using:
-
-ICMP (Internet Control Message Protocol)
+> **ICMP — Internet Control Message Protocol**
 
 Ping sends:
 
-Echo Request
+- Echo Request  
+- Echo Reply  
 
-Echo Reply
+to verify if a host is reachable and measure response time (latency).
 
-to measure network performance and availability.
+---
 
-🖥️ Ping Syntax:
+## 🖥️ Ping Syntax
 ping 10.10.10.10
 
-✅ Answers:
-Protocol Used by Ping:
-ICMP
+🏁 Ping Lab Result
 
-Ping Syntax:
-ping 10.10.10.10
+Pinging 8.8.8.8 revealed the following flag:
 
-Flag from 8.8.8.8:
 THM{I_PINGED_THE_SERVER}
 
-🛠️ Tools Used
-TryHackMe Interactive Labs
+✅ Answers
+| Question | Answer |
+|----------|--------|
+| What protocol does ping use? |	**ICMP** |
+| What is the syntax to ping 10.10.10.10? |	**ping 10.10.10.10** |
+| What flag do you get when pinging 8.8.8.8? |	**THM{I_PINGED_THE_SERVER}**|
 
-Ping Utility
-
-MAC Spoofing Simulation
-
-📚 Key Takeaways
-Understood networking fundamentals
-
-Learned device identification methods
-
-Explored IP & MAC addressing
-
-Understood MAC Spoofing
-
-Learned ICMP protocol usage
-
-Tested connectivity using Ping
-
-🚀 Author
-Riya Dhakad
-Cybersecurity Enthusiast | TryHackMe Learner
